@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     },
   },
   css: (() => {
-    // Crea la URL dinámica del archivo CSS
     const apiServer = process.env.API_SERVER || 'http://localhost:8000';
     const webSlug = process.env.WEB_SLUG || 'default-slug';
     const customCSS = `${apiServer}/css/${webSlug}/custom-values.css`;
@@ -19,10 +18,10 @@ export default defineNuxtConfig({
       '@fortawesome/fontawesome-free/css/all.min.css',
       'aos/dist/aos.css',
       'glightbox/dist/css/glightbox.min.css',
-      'swiper/swiper-bundle.min.css',
-      customCSS, // Agrega el CSS generado dinámicamente
+      // 'swiper/swiper-bundle.min.css',
+      // customCSS,   -> Investigate why it does not accept external routes.
+      '~/assets/css/custom-values.css',
       '~/assets/css/main.css',
     ];
   })(),
-
-})
+});
